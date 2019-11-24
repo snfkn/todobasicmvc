@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\UserController.cs" />
+    <Compile Include="Model\Buttons.cs" />
     <Compile Include="Model\Todo.cs" />
     <Compile Include="Model\TodoList.cs" />
     <Compile Include="Program.cs" />

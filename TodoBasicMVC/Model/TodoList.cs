@@ -31,7 +31,7 @@ namespace TodoBasicMVC.Model
             List<string> savedtodos = new List<string>();
             foreach (Todo todo in this)
             {
-                savedtodos.Add(todo.TodoTask);
+                savedtodos.Add(todo.TodoLabel.Text);
             }
             Properties.Settings.Default.SavedList = savedtodos;
             Properties.Settings.Default.Save();

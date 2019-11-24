@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static TodoBasicMVC.Model.TodoControls;
 
 namespace TodoBasicMVC.Model
 {
@@ -18,7 +19,7 @@ namespace TodoBasicMVC.Model
             {
                 if (_TodoLabel == null)
                 {
-                    _TodoLabel = TodoLabelCreate();
+                    _TodoLabel = new TodoLabel();
                 }
                 return _TodoLabel;
             }
@@ -35,7 +36,7 @@ namespace TodoBasicMVC.Model
             {
                 if (_Tick == null)
                 {
-                    _Tick = TickCreate();
+                    _Tick = new Tick();
                 }
                 return _Tick;
             }
@@ -51,60 +52,19 @@ namespace TodoBasicMVC.Model
             {
                 if (_Cross == null)
                 {
-                    _Cross = CrossCreate();
+                    _Cross = new Cross();
                 }
                 return _Cross;
             }
             set
             {
-                _Tick = Cross;
+                _Cross = value;
             }
         }
-        private Button TickCreate()
-        {
-            Button tick = new Button()
-            {
-                Font = new Font("Calibri", 12, FontStyle.Bold),
-                Text = "✔",
-                Anchor = AnchorStyles.Top | AnchorStyles.Right,
-                ForeColor = Color.Green,
-                Size = new Size(28, 28),
-            };
-            return tick;
-        }
-
-        private Button CrossCreate()
-        {
-            Button cross = new Button()
-            {
-                Font = new Font("Calibri", 12, FontStyle.Bold),
-                Text = "✖",
-                Anchor = AnchorStyles.Top | AnchorStyles.Right,
-                ForeColor = Color.Red,
-                Size = new Size(28, 28),
-            };
-            return cross;
-        }
-
-        private Label TodoLabelCreate()
-        {
-            Label todolabel = new Label()
-            {
-                AutoSize = false,
-                Dock = DockStyle.Fill,
-                Anchor = AnchorStyles.Top,
-                TextAlign = System.Drawing.ContentAlignment.TopCenter,
-                ForeColor = Color.CornflowerBlue,
-                Size = new Size(500, 35),
-                Font = new Font("Calibri", 16, FontStyle.Bold),
-            };
-
-            return todolabel;
-        }
+     
         public Todo(string task)
         {
             this.TodoLabel.Text = task;
-            this.TodoTask = task;
         }
 
     }
