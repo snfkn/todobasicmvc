@@ -25,21 +25,6 @@ namespace TodoBasicMVC.Controller
             {
                 _view.Add(todo);
             }
-            /*List<string> savedtodos = Properties.Settings.Default.SavedList;
-            if (savedtodos != null)
-            {
-                foreach (string todotask in savedtodos)
-                {
-                    var todo = new Todo(todotask);
-                    _todolist.Add(todo);
-                    _view.Add(todo);
-                }
-                Properties.Settings.Default.SavedList.Clear();
-            }
-            else 
-            {
-                Properties.Settings.Default.SavedList = new List<string>();
-            }           */
         }
         
         public void TodoAdd(string todoTask)
@@ -51,13 +36,6 @@ namespace TodoBasicMVC.Controller
         public void TodoListSave()
         {
             _todolist.Save();
-            /*            List<string> savedtodos = Properties.Settings.Default.SavedList;
-                        foreach (Todo todo in _todolist)
-                        {
-                            savedtodos.Add(todo.TodoLabel.Text);
-                        }
-                        Properties.Settings.Default.SavedList = savedtodos;
-                        Properties.Settings.Default.Save();*/
         }
 
         public void TodoDelete(Todo todo)
