@@ -33,10 +33,10 @@
             this.TodoBox = new System.Windows.Forms.TextBox();
             this.TodoLabel = new System.Windows.Forms.Label();
             this.BottomPanel = new System.Windows.Forms.Panel();
+            this.LabelComplete = new System.Windows.Forms.Label();
             this.LabelTotal = new System.Windows.Forms.Label();
             this.ClearButton = new System.Windows.Forms.Button();
             this.TaskPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.LabelComplete = new System.Windows.Forms.Label();
             this.TopPanel.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.SuspendLayout();
@@ -94,7 +94,8 @@
             // 
             // BottomPanel
             // 
-            this.BottomPanel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BottomPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BottomPanel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BottomPanel.Controls.Add(this.LabelComplete);
             this.BottomPanel.Controls.Add(this.LabelTotal);
@@ -103,6 +104,18 @@
             this.BottomPanel.Name = "BottomPanel";
             this.BottomPanel.Size = new System.Drawing.Size(800, 38);
             this.BottomPanel.TabIndex = 8;
+            // 
+            // LabelComplete
+            // 
+            this.LabelComplete.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.LabelComplete.AutoSize = true;
+            this.LabelComplete.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold);
+            this.LabelComplete.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.LabelComplete.Location = new System.Drawing.Point(626, 7);
+            this.LabelComplete.Name = "LabelComplete";
+            this.LabelComplete.Size = new System.Drawing.Size(162, 23);
+            this.LabelComplete.TabIndex = 3;
+            this.LabelComplete.Text = "Tasks Completed: 0";
             // 
             // LabelTotal
             // 
@@ -140,21 +153,10 @@
             this.TaskPanel.Size = new System.Drawing.Size(800, 346);
             this.TaskPanel.TabIndex = 7;
             // 
-            // LabelComplete
-            // 
-            this.LabelComplete.AutoSize = true;
-            this.LabelComplete.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold);
-            this.LabelComplete.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.LabelComplete.Location = new System.Drawing.Point(626, 7);
-            this.LabelComplete.Name = "LabelComplete";
-            this.LabelComplete.Size = new System.Drawing.Size(162, 23);
-            this.LabelComplete.TabIndex = 3;
-            this.LabelComplete.Text = "Tasks Completed: 0";
-            // 
             // UserView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.TopPanel);
             this.Controls.Add(this.BottomPanel);

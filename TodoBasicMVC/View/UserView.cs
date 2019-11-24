@@ -15,6 +15,50 @@ namespace TodoBasicMVC.View
     public partial class UserView : Form
     {
         private UserController _controller;
+
+        private int _TodoTotal;
+        public int TodoTotal
+        {
+            get
+            {
+                if (_TodoTotal < 0)
+                {
+                    _TodoTotal = 0;
+                }
+                return _TodoTotal;
+            }
+
+            set
+            {
+                _TodoTotal = value;
+                LabelTotal.Text = $"Tasks: {_TodoTotal}";
+            }
+        }
+        private int _TodoCompleted;
+        public int TodoCompleted
+        {
+            get
+            {
+                return _TodoCompleted;
+            }
+
+            set
+            {
+                _TodoCompleted = value;
+                LabelComplete.Text = $"Tasks Complete: {_TodoCompleted}";
+            }
+        }
+
+        private void TodoTotalTicker(int number)
+        {
+            TodoTotal += number;
+        }
+
+        private void TodoCompletedTicker(int number)
+        {
+            TodoCompleted += number;
+        }
+
         public void ControllerSet(UserController controller)
         {
             _controller = controller;
@@ -26,7 +70,6 @@ namespace TodoBasicMVC.View
 
         private void View_Load(object sender, EventArgs e)
         {
-
         }
 
         public void Add(Todo todo)
@@ -36,23 +79,33 @@ namespace TodoBasicMVC.View
             TaskPanel.Controls.Add(todo.Tick);
             TaskPanel.Controls.Add(todo.Cross);
             TaskPanel.SetFlowBreak(todo.Cross, true);
+            TodoTotalTicker(1);
         }
         public void Remove(Todo todo)
         {
             TaskPanel.Controls.Remove(todo.TodoLabel);
             TaskPanel.Controls.Remove(todo.Tick);
             TaskPanel.Controls.Remove(todo.Cross);
+            TodoTotalTicker(-1);
         }
 
+        public void Complete(Todo todo)
+        {
+            Remove(todo);
+            TodoCompletedTicker(1);
+        }
+
+        private void TotalCompleteClear()
+        {
+            TodoTotal = 0;
+            TodoCompleted = 0;
+        }
         public void ClearAll()
         {
             TaskPanel.Controls.Clear();
+            TotalCompleteClear();
         }
-        public void LabelUpdate(int total, int completed)
-        {
-            LabelTotal.Text = $"Tasks: {total}";
-            LabelComplete.Text = $"Tasks Complete: {completed}";
-        }
+
         public Todo ButtonSetup(Todo todo)
         {
             todo.Cross.Click += delegate
